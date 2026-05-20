@@ -99,6 +99,13 @@ Sve boje i varijable su u `src/styles/global.css` unutar `@theme {}` bloka (Tail
 | Politika privatnosti | `/politika-privatnosti` | ✅ Generička — preporučiti pregled pravnika pre lansiranja |
 | 404 | `/404` | ✅ Kompletan |
 
+## Hero fotografija
+
+Desna kolona homepagea prikazuje placeholder dok ne stigne prava fotografija. Kada bude:
+1. Kopirati fajl kao `public/hero-nekretnina.jpg`
+2. Fotografija treba biti **portrait orijentacije** (viša nego šira) — minimalno 600×800px
+3. Nema potrebe da se mijenja kod — placeholder se automatski zamjenjuje
+
 ## Napomene za mobilni prikaz
 
 Plutajuće kartice (npr. "30+ godina iskustva", "Spoj mladosti i iskustva" na homepageu i "U moru posrednika..." na O nama) koriste `position: absolute` sa negativnim offsetima. Na mobilnom se kompenzuje padding-om na kontejneru — **ne mijenjati** bez testiranja na telefonu.

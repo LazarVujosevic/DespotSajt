@@ -21,6 +21,8 @@ Brend je luksuznog karaktera: crna pozadina, zlatni akcenti, minimalistički sti
 - Custom 404
 - `.htaccess` za cPanel (HTTPS redirect, cache headers, sigurnosni headeri)
 - Responzivnost: plutajuće kartice vidljive na svim uređajima (padding kompenzacija za overflow)
+- Homepage hero: dvostubačni layout — tekst lijevo, slika desno (placeholder do prave fotografije)
+- Hero slika: dodati `public/hero-nekretnina.jpg` — treba **portrait** fotografija (viša nego šira). Na mobilnom vidljiva ispod teksta, 260px visine.
 
 ## Pravila koja MORA da se poštuju
 

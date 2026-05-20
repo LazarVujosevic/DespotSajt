@@ -14,43 +14,64 @@ import { site } from '../data/site';
       <div class="hero-bg-glow"></div>
     </div>
     <div class="container hero-content">
-      <div class="hero-text">
-        <p class="hero-eyebrow">
-          <span class="eyebrow-line"></span>
-          Više od običnog posredovanja
-        </p>
-        <h1 class="hero-title">
-          Mi se bavimo<br />vašim stanom,<br />
-          <span class="hero-title-gold">a vi se bavite vašim danom.</span>
-        </h1>
-        <p class="hero-subtitle">
-          Despot nekretnine — prodaja, iznajmljivanje i kompletno upravljanje nekretninom. Vi donosite odluku, mi se brinemo o svemu ostalom.
-        </p>
-        <div class="hero-actions">
-          <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`} class="hero-phone-cta">
-            <span class="hero-phone-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-              </svg>
-            </span>
-            {site.contact.phone}
-          </a>
-          <Button href="/usluge" variant="outline" size="lg">Naše usluge</Button>
+
+      <!-- Leva kolona: tekst -->
+      <div class="hero-left">
+        <div class="hero-text">
+          <p class="hero-eyebrow">
+            <span class="eyebrow-line"></span>
+            Više od običnog posredovanja
+          </p>
+          <h1 class="hero-title">
+            Mi se bavimo<br />vašim stanom,<br />
+            <span class="hero-title-gold">a vi se bavite vašim danom.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Despot nekretnine — prodaja, iznajmljivanje i kompletno upravljanje nekretninom. Vi donosite odluku, mi se brinemo o svemu ostalom.
+          </p>
+          <div class="hero-actions">
+            <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`} class="hero-phone-cta">
+              <span class="hero-phone-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+              </span>
+              {site.contact.phone}
+            </a>
+            <Button href="/usluge" variant="outline" size="lg">Naše usluge</Button>
+          </div>
+        </div>
+
+        <!-- Brand priča -->
+        <div class="hero-story">
+          <div class="hero-story-stat">
+            <span class="story-number">30+</span>
+            <span class="story-label">Godina iskustva<br/>u timu</span>
+          </div>
+          <div class="hero-story-divider" aria-hidden="true"></div>
+          <p class="hero-story-text">
+            Nova agencija — ali ne i neiskusna.<br/>
+            Iza nas stoje decenije rada na tržištu nekretnina, uz mlad tim koji zna kako se radi danas.
+          </p>
         </div>
       </div>
 
-      <!-- Brand priča -->
-      <div class="hero-story">
-        <div class="hero-story-stat">
-          <span class="story-number">30+</span>
-          <span class="story-label">Godina iskustva<br/>u timu</span>
+      <!-- Desna kolona: placeholder — zameniti pravom fotografijom -->
+      <div class="hero-right" aria-hidden="true">
+        <div class="hero-image-wrap">
+          <div class="hero-image-placeholder">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            <p>Fotografija nekretnine</p>
+            <span>Dodati: /public/hero-nekretnina.jpg</span>
+          </div>
+          <div class="hero-image-corner hero-image-corner--tl"></div>
+          <div class="hero-image-corner hero-image-corner--br"></div>
         </div>
-        <div class="hero-story-divider" aria-hidden="true"></div>
-        <p class="hero-story-text">
-          Nova agencija — ali ne i neiskusna.<br/>
-          Iza nas stoje decenije rada na tržištu nekretnina, uz mlad tim koji zna kako se radi danas.
-        </p>
       </div>
+
     </div>
   </section>
 
@@ -253,15 +274,86 @@ import { site } from '../data/site';
   .hero-content {
     position: relative;
     z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: stretch;
     padding-top: 5rem;
     padding-bottom: 5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 3.5rem;
+    width: 100%;
   }
 
-  .hero-text {
-    max-width: 44rem;
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .hero-text { max-width: 100%; }
+
+  /* Desna kolona */
+  .hero-right {
+    display: flex;
+  }
+
+  .hero-image-wrap {
+    position: relative;
+    width: 100%;
+    border: 1px solid var(--color-border-gold);
+    overflow: hidden;
+  }
+
+  /* Placeholder */
+  .hero-image-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #111008 0%, #1c1a0f 40%, #0f0f0f 100%);
+    color: rgba(201,168,76,0.2);
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .hero-image-placeholder p {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .hero-image-placeholder span {
+    font-size: 0.7rem;
+    color: var(--color-text-dim);
+    font-family: monospace;
+  }
+
+  /* Zlatni ugaoni detalji */
+  .hero-image-corner {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    pointer-events: none;
+  }
+
+  .hero-image-corner--tl {
+    top: 0.75rem;
+    left: 0.75rem;
+    border-top: 1px solid var(--color-primary);
+    border-left: 1px solid var(--color-primary);
+    opacity: 0.5;
+  }
+
+  .hero-image-corner--br {
+    bottom: 0.75rem;
+    right: 0.75rem;
+    border-bottom: 1px solid var(--color-primary);
+    border-right: 1px solid var(--color-primary);
+    opacity: 0.5;
   }
 
   .hero-eyebrow {
@@ -702,6 +794,12 @@ import { site } from '../data/site';
     .services-grid { grid-template-columns: 1fr; }
     .service-card { border-right: none; border-bottom: 1px solid var(--color-border); }
     .service-card:last-child { border-bottom: none; }
+  }
+
+  @media (max-width: 900px) {
+    .hero-content { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-image-wrap { min-height: 260px; }
+    .hero-image-placeholder { min-height: 260px; }
   }
 
   @media (max-width: 768px) {
