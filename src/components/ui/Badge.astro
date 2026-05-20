@@ -1,0 +1,43 @@
+---
+interface Props {
+  variant?: 'default' | 'gold' | 'outline';
+  class?: string;
+}
+
+const { variant = 'default', class: className } = Astro.props;
+const classes = ['badge', `badge--${variant}`, className].filter(Boolean).join(' ');
+---
+
+<span class={classes}>
+  <slot />
+</span>
+
+<style>
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  .badge--default {
+    background-color: var(--color-surface-2);
+    color: var(--color-text-muted);
+  }
+
+  .badge--gold {
+    background-color: rgba(201, 168, 76, 0.12);
+    color: var(--color-primary);
+    border: 1px solid rgba(201, 168, 76, 0.3);
+  }
+
+  .badge--outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    box-shadow: inset 0 0 0 1px var(--color-primary);
+  }
+</style>

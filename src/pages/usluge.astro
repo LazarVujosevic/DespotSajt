@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionTitle from '../components/sections/SectionTitle.astro';
+---
+
+<BaseLayout
+  title="Usluge"
+  description="Profesionalne usluge kupovine, prodaje i iznajmljivanja nekretnina."
+>
+  <section class="page-hero section-sm">
+    <div class="container">
+      <p class="section-eyebrow">Šta radimo</p>
+      <h1>Naše usluge</h1>
+      <p class="page-hero-sub">Kompletna podrška na svakom koraku vaše nekretninske transakcije.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p style="color: var(--color-text-muted);">Sadržaj stranice u izradi...</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background-color: #000000;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    margin: 0.5rem 0 1rem;
+  }
+
+  .page-hero-sub {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    max-width: 36rem;
+    margin: 0;
+    line-height: 1.7;
+  }
+</style>

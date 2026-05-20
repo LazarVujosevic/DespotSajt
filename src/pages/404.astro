@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+---
+
+<BaseLayout title="Stranica nije pronađena" noIndex={true}>
+  <section class="error-page section">
+    <div class="container error-inner">
+      <p class="error-code" aria-hidden="true">404</p>
+      <h1>Stranica nije pronađena</h1>
+      <p>Stranica koju tražite ne postoji ili je premeštena.</p>
+      <Button href="/" variant="outline">Povratak na početnu</Button>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .error-page {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .error-inner {
+    text-align: center;
+    max-width: 26rem;
+    margin: 0 auto;
+  }
+
+  .error-code {
+    font-size: 7rem;
+    font-weight: 800;
+    color: rgba(201, 168, 76, 0.12);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin: 0 0 0.25rem;
+  }
+
+  .error-inner h1 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin: 0 0 0.75rem;
+  }
+
+  .error-inner p {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    margin: 0 0 2rem;
+  }
+</style>
