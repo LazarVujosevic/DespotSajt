@@ -1,0 +1,442 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout
+  title="Politika privatnosti"
+  description="Politika privatnosti i zaštite podataka o ličnosti — Despot nekretnine."
+  noIndex={true}
+>
+  <section class="page-hero section-sm">
+    <div class="container">
+      <p class="section-eyebrow">Pravne informacije</p>
+      <h1>Politika privatnosti</h1>
+      <p class="page-hero-sub">
+        Poslednja izmena: maj 2025.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container policy-layout">
+
+      <!-- Sadržaj -->
+      <div class="policy-content">
+
+        <div class="policy-intro">
+          <p>
+            Despot nekretnine (u daljem tekstu: „mi", „naša agencija") posvećena je zaštiti vaših ličnih podataka. Ova politika privatnosti objašnjava koje podatke prikupljamo, kako ih koristimo i koja su vaša prava u skladu sa Zakonom o zaštiti podataka o ličnosti Republike Srbije („Sl. glasnik RS", br. 87/2018).
+          </p>
+        </div>
+
+        <div class="policy-section">
+          <h2><span class="policy-num">1.</span> Rukovalac podacima</h2>
+          <p>Rukovalac podacima o ličnosti je:</p>
+          <div class="policy-infobox">
+            <p><strong>{site.name}</strong></p>
+            <p>{site.contact.address}</p>
+            <p>E-mail: <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></p>
+            <p>Telefon: <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`}>{site.contact.phone}</a></p>
+          </div>
+        </div>
+
+        <div class="policy-section">
+          <h2><span class="policy-num">2.</span> Koji podaci se prikupljaju</h2>
+          <p>U zavisnosti od načina na koji komunicirate sa nama, možemo prikupljati sledeće kategorije podataka:</p>
+          <ul class="policy-list">
+            <li><strong>Kontakt podaci</strong> — ime i prezime, broj telefona, e-mail adresa</li>
+            <li><strong>Podaci o nekretnini</strong> — lokacija, opis i karakteristike nekretnine koju prodajete ili iznajmljujete</li>
+            <li><strong>Komunikacioni podaci</strong> — sadržaj poruka koje nam šaljete putem e-maila, telefona ili Instagram direktnih poruka</li>
+          </ul>
+          <p>Ne prikupljamo osetljive kategorije podataka (zdravstvene podatke, biometrijske podatke i sl.).</p>
+        </div>
+
+        <div class="policy-section">
+          <h2><span class="policy-num">3.</span> Svrha i pravni osnov obrade</h2>
+          <table class="policy-table">
+            <thead>
+              <tr>
+                <th>Svrha obrade</th>
+                <th>Pravni osnov</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Odgovaranje na vaše upite i zahteve</td>
+                <td>Legitimni interes / Izvršenje ugovora</td>
+              </tr>
+              <tr>
+                <td>Pružanje usluga posredovanja u prometu nekretnina</td>
+                <td>Izvršenje ugovora</td>
+              </tr>
+              <tr>
+                <td>Ispunjavanje zakonskih obaveza (vođenje evidencija, ugovori)</td>
+                <td>Zakonska obaveza</td>
+              </tr>
+              <tr>
+                <td>Slanje informacija o uslugama (samo uz saglasnost)</td>
+                <td>Saglasnost lica</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="policy-section">
+          <h2><span class="policy-num">4.</span> Čuvanje podataka</h2>
+          <p>
+            Vaše podatke čuvamo samo onoliko dugo koliko je neophodno za ostvarivanje svrhe zbog koje su prikupljeni, ili koliko to nalaže zakon. Kontakt podatke prikupljene u svrhu odgovora na upit čuvamo najduže <strong>12 meseci</strong> od poslednje komunikacije. Podaci vezani za zaključene ugovore čuvaju se u skladu sa zakonskim rokovima čuvanja poslovne dokumentacije.
+          </p>
+        </div>
+
+        <div class="policy-section">
+          <h2><span class="policy-num">5.</span> Deljenje podataka sa trećim licima</h2>
+          <p>
+            Vaše podatke ne prodajemo niti ustupamo trećim licima u komercijalne svrhe. Podaci mogu biti dostavljeni isključivo:
+          </p>
+          <ul class="policy-list">
+            <li>Notarima i pravnicima uključenim u realizaciju transakcije, uz vašu saglasnost</li>
+            <li>Državnim organima, kada je to zakonom propisano</li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2><span class="policy-num">6.</span> Vaša prava</h2>
+          <p>U skladu sa ZZPL, imate pravo da:</p>
+          <ul class="policy-list">
+            <li><strong>Pristupite</strong> podacima koje čuvamo o vama</li>
+            <li><strong>Ispravite</strong> netačne ili nepotpune podatke</li>
+            <li><strong>Zahtevate brisanje</strong> podataka („pravo na zaborav"), kada za to postoji osnov</li>
+            <li><strong>Ograničite obradu</strong> u određenim slučajevima</li>
+            <li><strong>Prenosite podatke</strong> drugom rukovaocu (prenosivost podataka)</li>
+            <li><strong>Prigovorite obradi</strong> zasnovanoj na legitimnom interesu</li>
+            <li><strong>Povučete saglasnost</strong> u bilo kom trenutku, bez uticaja na zakonitost obrade pre povlačenja</li>
+          </ul>
+          <p>
+            Zahtev za ostvarivanje prava možete uputiti na: <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>. Odgovorićemo u roku od 30 dana.
+          </p>
+          <p>
+            Ako smatrate da vaša prava nisu poštovana, možete podneti pritužbu Povereniku za informacije od javnog značaja i zaštitu podataka o ličnosti Republike Srbije (<a href="https://www.poverenik.rs" target="_blank" rel="noopener noreferrer">www.poverenik.rs</a>).
+          </p>
+        </div>
+
+        <div class="policy-section">
+          <h2><span class="policy-num">7.</span> Bezbednost podataka</h2>
+          <p>
+            Primenjujemo odgovarajuće tehničke i organizacione mere kako bismo zaštitili vaše podatke od neovlašćenog pristupa, gubitka ili uništenja. Sva komunikacija sa ovim sajtom odvija se putem šifrovane HTTPS veze.
+          </p>
+        </div>
+
+        <div class="policy-section">
+          <h2><span class="policy-num">8.</span> Kolačići (cookies)</h2>
+          <p>
+            Ovaj sajt ne koristi analitičke niti marketinške kolačiće. Ne pratimo vaše ponašanje na sajtu i ne koristimo alate trećih strana (Google Analytics i sl.).
+          </p>
+        </div>
+
+        <div class="policy-section">
+          <h2><span class="policy-num">9.</span> Izmene politike privatnosti</h2>
+          <p>
+            Zadržavamo pravo izmene ove politike. O značajnim izmenama obavestićemo vas objavom ažurirane verzije na ovoj stranici sa novim datumom izmene.
+          </p>
+        </div>
+
+        <div class="policy-section">
+          <h2><span class="policy-num">10.</span> Kontakt</h2>
+          <p>
+            Za sva pitanja u vezi sa zaštitom podataka o ličnosti možete nas kontaktirati:
+          </p>
+          <div class="policy-infobox">
+            <p>E-mail: <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></p>
+            <p>Telefon: <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`}>{site.contact.phone}</a></p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="policy-sidebar">
+        <div class="sidebar-card">
+          <p class="sidebar-label">Na ovoj stranici</p>
+          <nav aria-label="Sadržaj politike privatnosti">
+            <ol class="sidebar-toc">
+              <li><a href="#" onclick="return false">1. Rukovalac podacima</a></li>
+              <li><a href="#" onclick="return false">2. Koji podaci se prikupljaju</a></li>
+              <li><a href="#" onclick="return false">3. Svrha i pravni osnov</a></li>
+              <li><a href="#" onclick="return false">4. Čuvanje podataka</a></li>
+              <li><a href="#" onclick="return false">5. Deljenje sa trećim licima</a></li>
+              <li><a href="#" onclick="return false">6. Vaša prava</a></li>
+              <li><a href="#" onclick="return false">7. Bezbednost</a></li>
+              <li><a href="#" onclick="return false">8. Kolačići</a></li>
+              <li><a href="#" onclick="return false">9. Izmene politike</a></li>
+              <li><a href="#" onclick="return false">10. Kontakt</a></li>
+            </ol>
+          </nav>
+        </div>
+        <div class="sidebar-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <p>Preporučujemo da pre lansiranja sajta ovu politiku pregleda pravnik specijalizovan za zaštitu podataka.</p>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background-color: #000000;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    margin: 0.5rem 0 0.5rem;
+  }
+
+  .page-hero-sub {
+    font-size: 0.875rem;
+    color: var(--color-text-dim);
+    margin: 0;
+    letter-spacing: 0.04em;
+  }
+
+  /* Layout */
+  .policy-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  /* Intro */
+  .policy-intro {
+    padding: 1.5rem;
+    border-left: 2px solid var(--color-primary);
+    background: rgba(201,168,76,0.04);
+    margin-bottom: 3rem;
+  }
+
+  .policy-intro p {
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* Sekcije */
+  .policy-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .policy-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .policy-section h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 1rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .policy-num {
+    color: var(--color-primary);
+    font-size: 0.875rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+  }
+
+  .policy-section p {
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    margin: 0 0 0.875rem;
+  }
+
+  .policy-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .policy-section a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .policy-section a:hover {
+    text-decoration: underline;
+  }
+
+  /* Lista */
+  .policy-list {
+    padding-left: 0;
+    margin: 0.75rem 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .policy-list li {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .policy-list li::before {
+    content: '›';
+    color: var(--color-primary);
+    position: absolute;
+    left: 0;
+    font-size: 1rem;
+  }
+
+  .policy-list strong {
+    color: var(--color-text);
+  }
+
+  /* Info box */
+  .policy-infobox {
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    margin-top: 0.75rem;
+  }
+
+  .policy-infobox p {
+    margin: 0 0 0.375rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .policy-infobox p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* Tabela */
+  .policy-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.75rem 0;
+    font-size: 0.875rem;
+  }
+
+  .policy-table th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--color-border);
+  }
+
+  .policy-table td {
+    padding: 0.75rem 1rem;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    line-height: 1.5;
+    vertical-align: top;
+  }
+
+  .policy-table tr:nth-child(even) td {
+    background-color: rgba(255,255,255,0.02);
+  }
+
+  /* Sidebar */
+  .policy-sidebar {
+    position: sticky;
+    top: 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .sidebar-card {
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    padding: 1.25rem;
+  }
+
+  .sidebar-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin: 0 0 1rem;
+  }
+
+  .sidebar-toc {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    counter-reset: none;
+  }
+
+  .sidebar-toc li {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  .sidebar-toc a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    cursor: default;
+  }
+
+  .sidebar-note {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--color-border-gold);
+    background: rgba(201,168,76,0.04);
+  }
+
+  .sidebar-note svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
+    margin-top: 0.1rem;
+  }
+
+  .sidebar-note p {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .policy-layout {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .policy-sidebar {
+      position: static;
+      order: -1;
+    }
+  }
+</style>

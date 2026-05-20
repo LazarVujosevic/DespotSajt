@@ -91,9 +91,17 @@ Sve boje i varijable su u `src/styles/global.css` unutar `@theme {}` bloka (Tail
 
 | Stranica | Ruta | Status |
 |---|---|---|
-| Homepage | `/` | ✅ Kompletan dizajn |
-| Usluge | `/usluge` | 🔲 Placeholder — čeka sadržaj |
-| O nama | `/o-nama` | 🔲 Placeholder — čeka sadržaj |
-| Dokumentacija | `/dokumentacija` | ✅ Struktura gotova — čekaju pravi PDF fajlovi |
+| Homepage | `/` | ✅ Kompletan |
+| Usluge | `/usluge` | ✅ Kompletan — 3 usluge sa punim sadržajem |
+| O nama | `/o-nama` | 🔲 Placeholder — čeka sadržaj od klijenta |
+| Dokumentacija | `/dokumentacija` | ✅ Struktura gotova — čekaju pravi PDF fajlovi u `public/dokumenti/` |
 | Kontakt | `/kontakt` | ✅ Kompletan |
+| Politika privatnosti | `/politika-privatnosti` | ✅ Generička — preporučiti pregled pravnika pre lansiranja |
 | 404 | `/404` | ✅ Kompletan |
+
+## Brend i sadržaj
+
+- **Moto klijenta**: *"Mi se bavimo vašim stanom, a vi se bavite vašim danom."* — hero naslov, usluga Upravljanje, footer tagline
+- **Pozicioniranje**: Nova agencija, ali tim ima 30+ godina iskustva. Poruka: "Staro znanje, svež pristup."
+- **Usluge**: Prodaja · Iznajmljivanje · Upravljanje izdavanjem (za vlasnike koji žive van Beograda/inostranstvo)
+- **Bez kontakt forme** — klijent ne želi formu. Kontakt = telefon + email + Instagram

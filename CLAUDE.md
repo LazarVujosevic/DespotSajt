@@ -12,10 +12,11 @@ Brend je luksuznog karaktera: crna pozadina, zlatni akcenti, minimalistički sti
 - Dizajn sistem (crna + zlatna paleta, Montserrat font)
 - Header sa pravim logo fajlom (`public/logo.jpg`), sticky + scroll efekat, mobilni hamburger
 - Footer sa 4 kolone
-- Homepage: Hero, Usluge grid, Zašto mi, Kontakt kanali sekcija
+- Homepage: Hero (sa motom), Usluge grid (3 kartice), Zašto mi, Kontakt kanali sekcija
+- Stranica usluga: 3 kompletne usluge sa punim sadržajem (Prodaja, Iznajmljivanje, Upravljanje izdavanjem)
 - Kontakt stranica: samo kontakt info, bez forme
 - Dokumentacija stranica: lista PDF-ova za preuzimanje
-- Placeholder stranice: `/usluge`, `/o-nama`
+- Politika privatnosti: generička, usklađena sa ZZPL/GDPR — preporučiti pregled pravnika
 - Custom 404
 - `.htaccess` za cPanel (HTTPS redirect, cache headers, sigurnosni headeri)
 
@@ -41,13 +42,17 @@ Footer.astro   → koristi logo.jpg direktno, ne SVG
 BaseLayout.astro → prima: title, description, image, noIndex
 ```
 
-## Stranice koje čekaju sadržaj
+## Brend — ključne poruke
 
-Klijent još nije dostavio sadržaj za:
-- `/usluge` — treba: lista usluga sa opisima, eventualno cenovnik ili paketi
-- `/o-nama` — treba: opis agencije, tim, istorijat, možda fotografije
+- **Moto**: *"Mi se bavimo vašim stanom, a vi se bavite vašim danom."* — nalazi se na hero naslovu homepagea, lead rečenici usluge Upravljanje izdavanjem i footer taglineu (`site.ts`)
+- **Pozicioniranje**: Nova agencija + tim sa 30+ godina iskustva. Tagline: "Staro znanje, svež pristup."
+- **3 usluge**: Prodaja · Iznajmljivanje · Upravljanje izdavanjem
+- **Upravljanje izdavanjem** = usluga za vlasnike koji žive van Beograda ili u inostranstvu — potpuno preuzimaju brigu o nekretnini (zakupci, računi, kvarovi, mesečni izveštaj)
 
-Oba fajla imaju postavljenu page-hero strukturu, samo nedostaje telo sekcije.
+## Stranice koje čekaju sadržaj od klijenta
+
+- `/o-nama` — treba: opis agencije, priča o timu, istorijat, eventualno fotografije
+- `/dokumentacija` — treba: pravi PDF fajlovi u `public/dokumenti/` (ugovor o posredovanju, opšti uslovi, cenovnik...)
 
 ## Dokumenti
 

@@ -1,6 +1,6 @@
 export const site = {
   name: 'Despot nekretnine',
-  tagline: 'Vaš pouzdan partner u svetu nekretnina',
+  tagline: 'Mi se bavimo vašim stanom, a vi se bavite vašim danom.',
   description:
     'Profesionalno posredovanje u kupovini, prodaji i iznajmljivanju nekretnina. Pronađite dom koji zasluđujete.',
   url: 'https://despotnekretnine.rs',

@@ -20,12 +20,11 @@ import { site } from '../data/site';
           Više od običnog posredovanja
         </p>
         <h1 class="hero-title">
-          Prodajte.<br />
-          Kupite.<br />
-          <span class="hero-title-gold">Sa sigurnošću.</span>
+          Mi se bavimo<br />vašim stanom,<br />
+          <span class="hero-title-gold">a vi se bavite vašim danom.</span>
         </h1>
         <p class="hero-subtitle">
-          Despot nekretnine — stručnjak koji prepoznaje i ostvaruje maksimalnu realnu vrednost vaše nekretnine.
+          Despot nekretnine — prodaja, iznajmljivanje i kompletno upravljanje nekretninom. Vi donosite odluku, mi se brinemo o svemu ostalom.
         </p>
         <div class="hero-actions">
           <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`} class="hero-phone-cta">
@@ -40,22 +39,17 @@ import { site } from '../data/site';
         </div>
       </div>
 
-      <!-- Stats -->
-      <div class="hero-stats" aria-label="Statistike">
-        <div class="stat">
-          <span class="stat-number">500+</span>
-          <span class="stat-label">Završenih transakcija</span>
+      <!-- Brand priča -->
+      <div class="hero-story">
+        <div class="hero-story-stat">
+          <span class="story-number">30+</span>
+          <span class="story-label">Godina iskustva<br/>u timu</span>
         </div>
-        <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat">
-          <span class="stat-number">15+</span>
-          <span class="stat-label">Godina iskustva</span>
-        </div>
-        <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat">
-          <span class="stat-number">98%</span>
-          <span class="stat-label">Zadovoljnih klijenata</span>
-        </div>
+        <div class="hero-story-divider" aria-hidden="true"></div>
+        <p class="hero-story-text">
+          Nova agencija — ali ne i neiskusna.<br/>
+          Iza nas stoje decenije rada na tržištu nekretnina, uz mlad tim koji zna kako se radi danas.
+        </p>
       </div>
     </div>
   </section>
@@ -75,22 +69,20 @@ import { site } from '../data/site';
           {
             num: '01',
             title: 'PRODAJA',
-            desc: 'Postavljamo vašu nekretninu na tržište na pravi način. Pregovaramo u vaše ime i obezbeđujemo maksimalnu cenu.',
+            desc: 'Nekretninu može pokazati svako. Prodati je — to je veština. Pregovaramo u vaše ime i obezbeđujemo pravu cenu.',
+            href: '/usluge#prodaja',
           },
           {
             num: '02',
-            title: 'KUPOVINA',
-            desc: 'Pronalazimo idealnu nekretninu za vas — od pretrage do kupoprodajnog ugovora, korak po korak.',
+            title: 'IZNAJMLJIVANJE',
+            desc: 'Pravi zakupac, bez stresa. Proveravamo, ugovaramo i organizujemo primopredaju — sve umesto vas.',
+            href: '/usluge#izdavanje',
           },
           {
             num: '03',
-            title: 'IZNAJMLJIVANJE',
-            desc: 'Kompletno upravljanje vašim stanom. Od oglasa do primopredaje — vi samo proverite račun.',
-          },
-          {
-            num: '04',
-            title: 'PRAVNA PODRŠKA',
-            desc: 'Svaka transakcija praćena je kompletnom pravnom dokumentacijom. Bez iznenađenja.',
+            title: 'UPRAVLJANJE IZDAVANJEM',
+            desc: 'Živite van Beograda ili u inostranstvu? Vodimo ceo proces. Vi samo proverite račun svakog prvog u mesecu.',
+            href: '/usluge#upravljanje',
           },
         ].map((s) => (
           <div class="service-card">
@@ -98,7 +90,7 @@ import { site } from '../data/site';
             <div class="service-divider"></div>
             <h3 class="service-title">{s.title}</h3>
             <p class="service-desc">{s.desc}</p>
-            <a href="/usluge" class="service-link" aria-label={`Saznajte više o usluzi ${s.title}`}>
+            <a href={s.href} class="service-link" aria-label={`Saznajte više o usluzi ${s.title}`}>
               Saznajte više
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -117,20 +109,20 @@ import { site } from '../data/site';
       <div class="why-text-col">
         <p class="section-eyebrow">Zašto mi</p>
         <h2 class="why-title">
-          Razliku između prosečne i vrhunske agencije ne čini ime —
-          <span class="text-gold">čini je agent koji zna da pregovara.</span>
+          Staro znanje,
+          <span class="text-gold">svež pristup.</span>
         </h2>
 
         <p class="why-body">
-          Ne prepuštajte kapital nekome ko samo pokazuje prostor. Angažujte profesionalca koji vodi ceo proces do najpovoljnijeg rezultata.
+          Nismo samo još jedna agencija. Iza nas stoji 30 godina rada na tržištu nekretnina — iskustvo koje se ne može kupiti. Ispred nas su mladi profesionalci koji ne rade po staroj školi, nego po rezultatima.
         </p>
 
         <ul class="why-list">
           {[
-            'Transparentnost — bez skrivenih troškova',
-            'Brz odgovor u roku od 24 časa',
-            'Duboko poznavanje tržišta Beograda',
-            'Pravna sigurnost na svakom koraku',
+            '30+ godina iskustva u timu — znamo kako tržište zaista funkcioniše',
+            'Mlad tim sa svežim pogledom i direktnim pristupom',
+            'Transparentnost — uvek znate šta se dešava i zašto',
+            'Brz odgovor — dostupni smo kad vam zatreba',
           ].map((item) => (
             <li class="why-item">
               <span class="why-arrow" aria-hidden="true">›</span>
@@ -150,14 +142,13 @@ import { site } from '../data/site';
             <span class="why-box-line"></span>
             <p class="why-box-tagline">Više od običnog posredovanja</p>
           </div>
-          <!-- Plutajuće kartice sa brojevima -->
           <div class="stat-float stat-float--tl">
-            <span class="stat-float-num">500+</span>
-            <span class="stat-float-lbl">transakcija</span>
+            <span class="stat-float-num">30+</span>
+            <span class="stat-float-lbl">godina iskustva</span>
           </div>
           <div class="stat-float stat-float--br">
-            <span class="stat-float-num">15+</span>
-            <span class="stat-float-lbl">godina</span>
+            <span class="stat-float-tag">Spoj mladosti</span>
+            <span class="stat-float-lbl">i iskustva</span>
           </div>
         </div>
       </div>
@@ -319,39 +310,54 @@ import { site } from '../data/site';
     gap: 0.875rem;
   }
 
-  /* Stats */
-  .hero-stats {
+  /* Brand priča ispod heroa */
+  .hero-story {
     display: flex;
     align-items: center;
     gap: 2rem;
     padding: 1.5rem 2rem;
     border: 1px solid var(--color-border-gold);
-    border-radius: var(--radius-sm);
     background: rgba(201,168,76,0.03);
     width: fit-content;
+    max-width: 36rem;
   }
 
-  .stat { display: flex; flex-direction: column; gap: 0.2rem; }
+  .hero-story-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex-shrink: 0;
+  }
 
-  .stat-number {
-    font-size: 2rem;
+  .story-number {
+    font-size: 2.5rem;
     font-weight: 800;
     color: var(--color-primary);
     line-height: 1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
   }
 
-  .stat-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
+  .story-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     color: var(--color-text-muted);
-    white-space: nowrap;
+    text-transform: uppercase;
+    line-height: 1.5;
   }
 
-  .stat-divider {
+  .hero-story-divider {
     width: 1px;
-    height: 2.5rem;
+    height: 3rem;
     background-color: var(--color-border);
+    flex-shrink: 0;
+  }
+
+  .hero-story-text {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin: 0;
   }
 
   /* ===== USLUGE ===== */
@@ -363,7 +369,7 @@ import { site } from '../data/site';
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0;
     margin-top: 3.5rem;
     border: 1px solid var(--color-border);
@@ -560,8 +566,16 @@ import { site } from '../data/site';
     line-height: 1;
   }
 
+  .stat-float-tag {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+
   .stat-float-lbl {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--color-text-muted);
@@ -681,24 +695,23 @@ import { site } from '../data/site';
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 1024px) {
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .service-card:nth-child(2) { border-right: none; }
-    .service-card:nth-child(1),
-    .service-card:nth-child(2) { border-bottom: 1px solid var(--color-border); }
     .channels-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { border-right: none; border-bottom: 1px solid var(--color-border); }
+    .service-card:last-child { border-bottom: none; }
   }
 
   @media (max-width: 768px) {
     .why-inner { grid-template-columns: 1fr; gap: 3rem; }
     .why-visual-col { display: none; }
-    .hero-stats { flex-wrap: wrap; gap: 1rem; }
-    .stat-divider { display: none; }
+    .hero-story { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .hero-story-divider { width: 3rem; height: 1px; }
   }
 
   @media (max-width: 600px) {
-    .services-grid { grid-template-columns: 1fr; }
-    .service-card { border-right: none; border-bottom: 1px solid var(--color-border); }
-    .service-card:last-child { border-bottom: none; }
     .service-link { opacity: 1; }
     .channels-grid { grid-template-columns: 1fr; }
   }
