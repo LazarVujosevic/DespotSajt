@@ -14,11 +14,13 @@ Brend je luksuznog karaktera: crna pozadina, zlatni akcenti, minimalistički sti
 - Footer sa 4 kolone
 - Homepage: Hero (sa motom), Usluge grid (3 kartice), Zašto mi, Kontakt kanali sekcija
 - Stranica usluga: 3 kompletne usluge sa punim sadržajem (Prodaja, Iznajmljivanje, Upravljanje izdavanjem)
+- Stranica O nama: kompletna (priča, moto, pristup, tim, vrednosti, CTA)
 - Kontakt stranica: samo kontakt info, bez forme
-- Dokumentacija stranica: lista PDF-ova za preuzimanje
-- Politika privatnosti: generička, usklađena sa ZZPL/GDPR — preporučiti pregled pravnika
+- Dokumentacija: 2 PDF-a postavljena, 2 placeholder-a čekaju fajlove
+- Politika privatnosti: generička, usklađena sa ZZPL/GDPR — preporučiti pregled pravnika pre lansiranja
 - Custom 404
 - `.htaccess` za cPanel (HTTPS redirect, cache headers, sigurnosni headeri)
+- Responzivnost: plutajuće kartice vidljive na svim uređajima (padding kompenzacija za overflow)
 
 ## Pravila koja MORA da se poštuju
 

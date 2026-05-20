@@ -705,10 +705,12 @@ import { site } from '../data/site';
   }
 
   @media (max-width: 768px) {
-    .why-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .why-visual-col { display: none; }
+    .why-inner { grid-template-columns: 1fr; gap: 2rem; }
     .hero-story { flex-direction: column; align-items: flex-start; gap: 1rem; }
     .hero-story-divider { width: 3rem; height: 1px; }
+
+    /* Dajemo prostora da plutajuće kartice ne izlaze van ekrana */
+    .why-visual-col { padding: 2rem 3rem; }
   }
 
   @media (max-width: 600px) {

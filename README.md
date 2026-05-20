@@ -99,6 +99,10 @@ Sve boje i varijable su u `src/styles/global.css` unutar `@theme {}` bloka (Tail
 | Politika privatnosti | `/politika-privatnosti` | ✅ Generička — preporučiti pregled pravnika pre lansiranja |
 | 404 | `/404` | ✅ Kompletan |
 
+## Napomene za mobilni prikaz
+
+Plutajuće kartice (npr. "30+ godina iskustva", "Spoj mladosti i iskustva" na homepageu i "U moru posrednika..." na O nama) koriste `position: absolute` sa negativnim offsetima. Na mobilnom se kompenzuje padding-om na kontejneru — **ne mijenjati** bez testiranja na telefonu.
+
 ## Dokumenti
 
 PDF fajlovi se nalaze u `public/dokumenti/`. Lista se uređuje u `src/pages/dokumentacija.astro`.

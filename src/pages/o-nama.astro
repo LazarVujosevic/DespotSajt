@@ -709,13 +709,15 @@ import { site } from '../data/site';
   @media (max-width: 900px) {
     .story-inner,
     .team-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .story-visual { display: none; }
-    .story-quote-float { display: none; }
     .approach-grid { grid-template-columns: 1fr; }
     .approach-card { border-right: none !important; }
     .approach-card:last-child { border-bottom: none; }
     .about-cta-inner { flex-direction: column; align-items: flex-start; }
     .motto-mark { font-size: 4rem; }
+
+    .story-visual { padding: 2rem 3rem 3rem; }
+    .story-logo-box { max-width: 100%; aspect-ratio: auto; padding: 2.5rem 1.5rem; }
+    .story-quote-float { right: 0; bottom: -1.5rem; }
   }
 
   @media (max-width: 600px) {
