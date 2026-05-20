@@ -1,45 +1,729 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+import { site } from '../data/site';
 ---
 
 <BaseLayout
   title="O nama"
-  description="Saznajte više o timu i misiji kompanije Despot Nekretnine."
+  description="Despot nekretnine — nova agencija, ali ne i neiskusna. Iza nas stoji 30+ godina iskustva u poslu sa nekretninama, ispred nas mlad tim koji zna kako se radi danas."
 >
+
+  <!-- ===== HERO ===== -->
   <section class="page-hero section-sm">
     <div class="container">
       <p class="section-eyebrow">Ko smo mi</p>
-      <h1>O nama</h1>
-      <p class="page-hero-sub">Tim stručnjaka posvećen vašim nekretninama.</p>
+      <h1>Nismo tu da pokazujemo stanove.<br />Tu smo da ih prodajemo.</h1>
+      <p class="page-hero-sub">
+        Despot nekretnine nastala je iz uverenja da posredovanje može biti — i mora biti — više od otvaranja vrata i čekanja na proviziju.
+      </p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <p style="color: var(--color-text-muted);">Sadržaj stranice u izradi...</p>
+  <!-- ===== PRIČA ===== -->
+  <section class="section story-section">
+    <div class="container story-inner">
+
+      <div class="story-text">
+        <p class="section-eyebrow">Naša priča</p>
+        <h2 class="story-title">Nastali iz odluke<br/><span class="text-gold">da bude drugačije.</span></h2>
+
+        <p>
+          Despot nekretnine nije nastala slučajno. Nastala je iz odluke — odluke iskusnih profesionalaca da posredovanje u nekretninama mora biti više od otvaranja vrata i čekanja na proviziju.
+        </p>
+        <p>
+          Koliko puta ste čuli da je prodaja ili iznajmljivanje stana "komplikovano"? Koliko puta ste čekali odgovor na upit koji je trebalo da stigne za sat vremena, a stigao je za tri dana? Koliko puta ste imali osećaj da ste vi ti koji vode posrednika, a ne obrnuto?
+        </p>
+        <p>
+          Mi smo odlučili da to promenimo.
+        </p>
+        <p>
+          Iza nas stoji više od <strong>30 godina iskustva u poslu sa nekretninama</strong>. Znamo kako se pregovara. Znamo šta je prava cena, a šta je samo dobra priča. Znamo kada treba čekati, a kada delovati odmah.
+        </p>
+        <p>
+          Ali iskustvo samo po sebi nije dovoljno. Tržište se menja. Način komunikacije se menja. Kupci i stanari traže transparentnost i brze odgovore, ne formulare i čekanje. Zato smo to iskustvo spojili sa mlađim timom koji razume šta klijenti traže danas — i koji je tu da im to pruži.
+        </p>
+      </div>
+
+      <div class="story-visual" aria-hidden="true">
+        <div class="story-logo-box">
+          <img src="/logo.jpg" alt="" width="140" height="140" />
+          <span class="story-logo-line"></span>
+          <p class="story-logo-name">Despot<br/>nekretnine</p>
+        </div>
+        <div class="story-quote-float">
+          <p>"U moru posrednika,<br/>razlika je u pristupu."</p>
+        </div>
+      </div>
+
     </div>
   </section>
+
+  <!-- ===== MOTO (FULL WIDTH) ===== -->
+  <section class="motto-section">
+    <div class="motto-line" aria-hidden="true"></div>
+    <div class="container motto-inner">
+      <span class="motto-mark" aria-hidden="true">"</span>
+      <blockquote class="motto-text">
+        Mi se bavimo vašim stanom,<br/>
+        <span class="text-gold">a vi se bavite vašim danom.</span>
+      </blockquote>
+    </div>
+    <div class="motto-line" aria-hidden="true"></div>
+  </section>
+
+  <!-- ===== PRISTUP ===== -->
+  <section class="section approach-section">
+    <div class="container approach-inner">
+
+      <div class="approach-header">
+        <p class="section-eyebrow">Naš pristup</p>
+        <h2>Više od posredovanja</h2>
+        <p class="approach-lead">
+          Razliku između prosečne i vrhunske agencije ne čini naziv. Čini je ono što se dešava između prvog poziva i potpisa ugovora.
+        </p>
+      </div>
+
+      <div class="approach-grid">
+        {[
+          {
+            num: '01',
+            title: 'Slušamo pre nego što govorimo',
+            body: 'Svaka nekretnina ima svoju priču, a svaki klijent ima svoje prioritete. Počinjemo od razgovora, ne od oglasa. Shvatamo šta vam je zaista važno — i od toga polazimo.',
+          },
+          {
+            num: '02',
+            title: 'Kažemo vam istinu, ne ono što želite da čujete',
+            body: 'Ako je cena previsoka, reći ćemo vam to. Ako je zakupac rizičan, nećemo ga preporučiti. Gradimo poverenje kroz transparentnost — jer kratkoročna ugodnost ne isplati se na duge staze.',
+          },
+          {
+            num: '03',
+            title: 'Vodimo proces, ne pratimo ga',
+            body: 'Ne čekamo da se stvari dese. Pregovaramo aktivno, pratimo svaki korak, koordiniramo sa notarima i pravnicima, i brinemo se da ništa ne zapne — ni na vašoj ni na drugoj strani.',
+          },
+          {
+            num: '04',
+            title: 'Dostupni smo kad nam zatreba',
+            body: 'Vaš upit ne ide na čekanje. Odgovaramo brzo — jer znamo da u svetu nekretnina, vreme je novac. Doslovno.',
+          },
+        ].map((item) => (
+          <div class="approach-card">
+            <span class="approach-num">{item.num}</span>
+            <h3 class="approach-title">{item.title}</h3>
+            <p class="approach-body">{item.body}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== TIM ===== -->
+  <section class="section team-section">
+    <div class="container team-inner">
+
+      <div class="team-visual" aria-hidden="true">
+        <div class="team-blocks">
+          <div class="team-block team-block--exp">
+            <span class="team-block-num">30+</span>
+            <span class="team-block-lbl">Godina iskustva<br/>u timu</span>
+          </div>
+          <div class="team-block team-block--youth">
+            <span class="team-block-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                <path d="M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+            </span>
+            <span class="team-block-lbl">Mlad tim<br/>spreman za akciju</span>
+          </div>
+          <div class="team-block team-block--city">
+            <span class="team-block-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </span>
+            <span class="team-block-lbl">Srbija —<br/>naše tržište</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-text">
+        <p class="section-eyebrow">Naš tim</p>
+        <h2>Spoj iskustva<br/><span class="text-gold">i mladalačke energije</span></h2>
+
+        <p>
+          Naš tim nije homogen — i to je namerno. Verujemo da je kombinacija dugogodišnjeg iskustva i svežeg pogleda ono što daje pravi rezultat.
+        </p>
+        <p>
+          Iskusni članovi tima proveli su decenije na tržištu nekretnina. Znaju kako izgleda loša pogodba pre nego što je klijent primeti. Znaju koje lokacije i tipove nekretnina vredi razmatrati — i zašto. To znanje ne postoji u udžbenicima — dolazi iz hiljada razgovora, pregovora i sklopljenih poslova.
+        </p>
+        <p>
+          Mlađi deo tima donosi nešto drugo: direktnu komunikaciju, brz odgovor, razumevanje šta klijent traži kada otvori telefon — ne samo kada sedne za sto na sastanak. Znaju kako tržište izgleda iz perspektive onih koji danas traže stan, a ne onih koji su ga tražili dvadeset godina pre.
+        </p>
+        <p>
+          Zajedno — radimo bolje nego svaki deo ponaosob.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== VREDNOSTI ===== -->
+  <section class="section values-section">
+    <div class="container">
+      <div class="values-header">
+        <p class="section-eyebrow">Šta nas definiše</p>
+        <h2>Naše vrednosti</h2>
+      </div>
+
+      <div class="values-grid">
+        {[
+          {
+            icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+            title: 'Transparentnost',
+            body: 'Bez skrivenih troškova, bez lepih priča. Uvek ćete znati šta se dešava, zašto se dešava i šta je sledeći korak.',
+          },
+          {
+            icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+            title: 'Posvećenost',
+            body: 'Vaš stan tretiramo kao da je naš. Nije nam cilj da zatvorimo posao — cilj nam je da zatvorimo dobar posao. Za vas.',
+          },
+          {
+            icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0',
+            title: 'Poverenje',
+            body: 'Gradimo odnose, ne samo ugovore. Naši klijenti se vraćaju — i preporučuju nas, jer znaju da neće biti razočarani.',
+          },
+          {
+            icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2',
+            title: 'Odgovornost',
+            body: 'Preuzmemo zadatak — preuzimamo i odgovornost. Pratimo svaki detalj procesa i brinemo se da ništa ne zapne između prvog razgovora i primopredaje.',
+          },
+        ].map((v) => (
+          <div class="value-card">
+            <span class="value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d={v.icon}/>
+              </svg>
+            </span>
+            <h3 class="value-title">{v.title}</h3>
+            <p class="value-body">{v.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="about-cta section-sm">
+    <div class="about-cta-line" aria-hidden="true"></div>
+    <div class="container about-cta-inner">
+      <div>
+        <h2 class="about-cta-title">Upoznajmo se.</h2>
+        <p class="about-cta-sub">
+          Pozovite nas ili pošaljite poruku — bez obaveza, bez formulara. Samo razgovor.
+        </p>
+      </div>
+      <div class="about-cta-contacts">
+        <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`} class="cta-contact-pill cta-contact-pill--primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          {site.contact.phone}
+        </a>
+        <a href="https://www.instagram.com/_prodaja_nekretnina_/" target="_blank" rel="noopener noreferrer" class="cta-contact-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+          </svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+    <div class="about-cta-line" aria-hidden="true"></div>
+  </section>
+
 </BaseLayout>
 
 <style>
+  /* ===== HERO ===== */
   .page-hero {
     background-color: #000000;
     border-bottom: 1px solid var(--color-border);
   }
 
   .page-hero h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(1.75rem, 4vw, 3rem);
     font-weight: 800;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
     color: var(--color-text);
     margin: 0.5rem 0 1rem;
+    line-height: 1.15;
   }
 
   .page-hero-sub {
     font-size: 1rem;
     color: var(--color-text-muted);
-    max-width: 36rem;
+    max-width: 44rem;
     margin: 0;
-    line-height: 1.7;
+    line-height: 1.75;
+  }
+
+  /* ===== PRIČA ===== */
+  .story-section {
+    background-color: var(--color-background);
+  }
+
+  .story-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .story-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin: 0.625rem 0 1.75rem;
+  }
+
+  .story-text p {
+    font-size: 0.9375rem;
+    line-height: 1.85;
+    color: var(--color-text-muted);
+    margin: 0 0 1rem;
+  }
+
+  .story-text p strong {
+    color: var(--color-text);
+    font-weight: 700;
+  }
+
+  .story-text p:last-child { margin-bottom: 0; }
+
+  /* Vizuelna kolona */
+  .story-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .story-logo-box {
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 360px;
+    border: 1px solid var(--color-border-gold);
+    background: rgba(201,168,76,0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .story-logo-box img {
+    border-radius: 50%;
+    object-fit: contain;
+  }
+
+  .story-logo-line {
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background-color: var(--color-primary);
+    opacity: 0.5;
+  }
+
+  .story-logo-name {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    text-align: center;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .story-quote-float {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -2rem;
+    padding: 1.25rem 1.5rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border-gold);
+    max-width: 220px;
+  }
+
+  .story-quote-float p {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin: 0;
+  }
+
+  /* ===== MOTO ===== */
+  .motto-section {
+    padding: 4rem 0;
+    background-color: var(--color-surface);
+  }
+
+  .motto-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);
+  }
+
+  .motto-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 3rem 1.5rem;
+  }
+
+  .motto-mark {
+    font-family: Georgia, serif;
+    font-size: 6rem;
+    color: var(--color-primary);
+    opacity: 0.3;
+    line-height: 0.7;
+    flex-shrink: 0;
+    user-select: none;
+  }
+
+  .motto-text {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  /* ===== PRISTUP ===== */
+  .approach-section {
+    background-color: var(--color-background);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .approach-header {
+    max-width: 40rem;
+    margin-bottom: 3rem;
+  }
+
+  .approach-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    margin: 0.5rem 0 0.875rem;
+  }
+
+  .approach-lead {
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border: 1px solid var(--color-border);
+  }
+
+  .approach-card {
+    padding: 2rem;
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color 0.2s;
+  }
+
+  .approach-card:nth-child(2),
+  .approach-card:nth-child(4) { border-right: none; }
+
+  .approach-card:nth-child(3),
+  .approach-card:nth-child(4) { border-bottom: none; }
+
+  .approach-card:hover {
+    background-color: rgba(201,168,76,0.03);
+  }
+
+  .approach-num {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .approach-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 0.75rem;
+    line-height: 1.35;
+  }
+
+  .approach-body {
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* ===== TIM ===== */
+  .team-section {
+    background-color: var(--color-surface);
+  }
+
+  .team-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .team-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .team-blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background-color: var(--color-border);
+    border: 1px solid var(--color-border);
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .team-block {
+    background-color: var(--color-surface);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .team-block--exp {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;
+    background-color: rgba(201,168,76,0.05);
+    border-bottom: 1px solid var(--color-border-gold);
+  }
+
+  .team-block-num {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .team-block-icon {
+    color: var(--color-primary);
+    opacity: 0.7;
+  }
+
+  .team-block-lbl {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .team-text h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin: 0.625rem 0 1.75rem;
+  }
+
+  .team-text p {
+    font-size: 0.9375rem;
+    line-height: 1.85;
+    color: var(--color-text-muted);
+    margin: 0 0 1rem;
+  }
+
+  .team-text p:last-child { margin-bottom: 0; }
+
+  /* ===== VREDNOSTI ===== */
+  .values-section {
+    background-color: var(--color-background);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .values-header {
+    margin-bottom: 3rem;
+  }
+
+  .values-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    margin: 0.5rem 0 0;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--color-border);
+  }
+
+  .value-card {
+    padding: 2rem 1.75rem;
+    border-right: 1px solid var(--color-border);
+    transition: background-color 0.2s;
+  }
+
+  .value-card:last-child { border-right: none; }
+
+  .value-card:hover { background-color: rgba(201,168,76,0.03); }
+
+  .value-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--color-border-gold);
+    color: var(--color-primary);
+    margin-bottom: 1.125rem;
+  }
+
+  .value-title {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 0.625rem;
+  }
+
+  .value-body {
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* ===== CTA ===== */
+  .about-cta {
+    background-color: var(--color-surface);
+    padding: 4rem 0;
+  }
+
+  .about-cta-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.35), transparent);
+  }
+
+  .about-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 3rem 1.5rem;
+  }
+
+  .about-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-primary);
+    margin: 0 0 0.5rem;
+    line-height: 1;
+  }
+
+  .about-cta-sub {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  .about-cta-contacts {
+    display: flex;
+    gap: 0.875rem;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+
+  .cta-contact-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--color-border-gold);
+    color: var(--color-text);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+  }
+
+  .cta-contact-pill:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background-color: rgba(201,168,76,0.05);
+  }
+
+  .cta-contact-pill--primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #000000;
+    font-weight: 700;
+  }
+
+  .cta-contact-pill--primary:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    color: #000000;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+    .value-card:nth-child(2) { border-right: none; }
+    .value-card:nth-child(1),
+    .value-card:nth-child(2) { border-bottom: 1px solid var(--color-border); }
+  }
+
+  @media (max-width: 900px) {
+    .story-inner,
+    .team-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .story-visual { display: none; }
+    .story-quote-float { display: none; }
+    .approach-grid { grid-template-columns: 1fr; }
+    .approach-card { border-right: none !important; }
+    .approach-card:last-child { border-bottom: none; }
+    .about-cta-inner { flex-direction: column; align-items: flex-start; }
+    .motto-mark { font-size: 4rem; }
+  }
+
+  @media (max-width: 600px) {
+    .values-grid { grid-template-columns: 1fr; }
+    .value-card { border-right: none; border-bottom: 1px solid var(--color-border); }
+    .value-card:last-child { border-bottom: none; }
+    .about-cta-contacts { flex-direction: column; width: 100%; }
+    .cta-contact-pill { justify-content: center; }
+    .team-blocks { max-width: 100%; }
   }
 </style>

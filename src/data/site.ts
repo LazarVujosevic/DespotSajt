@@ -5,7 +5,7 @@ export const site = {
     'Profesionalno posredovanje u kupovini, prodaji i iznajmljivanju nekretnina. Pronađite dom koji zasluđujete.',
   url: 'https://despotnekretnine.rs',
   contact: {
-    phone: '+381 11 000 0000',
+    phone: '061 18 30 866',
     email: 'info@despotnekretnine.rs',
     address: 'Ulica primer 1, Beograd',
   },

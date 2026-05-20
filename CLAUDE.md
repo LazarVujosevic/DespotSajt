@@ -51,8 +51,12 @@ BaseLayout.astro → prima: title, description, image, noIndex
 
 ## Stranice koje čekaju sadržaj od klijenta
 
-- `/o-nama` — treba: opis agencije, priča o timu, istorijat, eventualno fotografije
-- `/dokumentacija` — treba: pravi PDF fajlovi u `public/dokumenti/` (ugovor o posredovanju, opšti uslovi, cenovnik...)
+- `/dokumentacija` — još 2 PDF-a čekaju: `opsti-uslovi-poslovanja.pdf` i `cenovnik.pdf` → kopirati u `public/dokumenti/` i ažurirati `size` u `src/pages/dokumentacija.astro`
+
+## Kontakt podaci (pravi)
+
+- **Telefon**: `061 18 30 866` (preuzeto sa Instagram profila)
+- **Email/adresa**: još uvek placeholder u `src/data/site.ts` — ažurirati kad klijent dostavi
 
 ## Dokumenti
 

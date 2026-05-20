@@ -93,15 +93,27 @@ Sve boje i varijable su u `src/styles/global.css` unutar `@theme {}` bloka (Tail
 |---|---|---|
 | Homepage | `/` | ✅ Kompletan |
 | Usluge | `/usluge` | ✅ Kompletan — 3 usluge sa punim sadržajem |
-| O nama | `/o-nama` | 🔲 Placeholder — čeka sadržaj od klijenta |
-| Dokumentacija | `/dokumentacija` | ✅ Struktura gotova — čekaju pravi PDF fajlovi u `public/dokumenti/` |
+| O nama | `/o-nama` | ✅ Kompletan |
+| Dokumentacija | `/dokumentacija` | ✅ 2 PDF-a postavljena — čekaju još 2 (`opsti-uslovi-poslovanja.pdf`, `cenovnik.pdf`) |
 | Kontakt | `/kontakt` | ✅ Kompletan |
 | Politika privatnosti | `/politika-privatnosti` | ✅ Generička — preporučiti pregled pravnika pre lansiranja |
 | 404 | `/404` | ✅ Kompletan |
 
+## Dokumenti
+
+PDF fajlovi se nalaze u `public/dokumenti/`. Lista se uređuje u `src/pages/dokumentacija.astro`.
+
+| Fajl | Status |
+|---|---|
+| `Ugovor-o-posredovanju.pdf` | ✅ Postavljen |
+| `Predugovor-o-kupoprodaji-stana.pdf` | ✅ Postavljen |
+| `opsti-uslovi-poslovanja.pdf` | 🔲 Čeka dokument od klijenta |
+| `cenovnik.pdf` | 🔲 Čeka dokument od klijenta |
+
 ## Brend i sadržaj
 
-- **Moto klijenta**: *"Mi se bavimo vašim stanom, a vi se bavite vašim danom."* — hero naslov, usluga Upravljanje, footer tagline
-- **Pozicioniranje**: Nova agencija, ali tim ima 30+ godina iskustva. Poruka: "Staro znanje, svež pristup."
-- **Usluge**: Prodaja · Iznajmljivanje · Upravljanje izdavanjem (za vlasnike koji žive van Beograda/inostranstvo)
+- **Moto**: *"Mi se bavimo vašim stanom, a vi se bavite vašim danom."* — hero naslov, usluga Upravljanje izdavanjem, footer tagline
+- **Pozicioniranje**: Nova agencija + tim sa 30+ godina iskustva. "Staro znanje, svež pristup."
+- **Usluge**: Prodaja · Iznajmljivanje · Upravljanje izdavanjem (za vlasnike koji žive daleko od nekretnine)
 - **Bez kontakt forme** — klijent ne želi formu. Kontakt = telefon + email + Instagram
+- **Telefon**: 061 18 30 866
