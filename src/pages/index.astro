@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
 import SectionTitle from '../components/sections/SectionTitle.astro';
 import { site } from '../data/site';
+import { Image } from 'astro:assets';
+import heroImage from '../assets/hero-nekretnina.jpg';
 ---
 
 <BaseLayout>
@@ -50,7 +52,7 @@ import { site } from '../data/site';
           </div>
           <div class="hero-story-divider" aria-hidden="true"></div>
           <p class="hero-story-text">
-            Nova agencija — ali ne i neiskusna.<br/>
+            Nova agencija — ali ne i bez iskustva.<br/>
             Iza nas stoje decenije rada na tržištu nekretnina, uz mlad tim koji zna kako se radi danas.
           </p>
         </div>
@@ -59,12 +61,10 @@ import { site } from '../data/site';
       <!-- Desna kolona: hero fotografija -->
       <div class="hero-right">
         <div class="hero-image-wrap">
-          <img
-            src="/hero-nekretnina.jpg"
-            alt="Luksuzna nekretnina — Despot nekretnine"
+          <Image
+            src={heroImage}
+            alt="Beograd — Despot nekretnine"
             class="hero-image"
-            width="1000"
-            height="1500"
             loading="eager"
           />
           <div class="hero-image-corner hero-image-corner--tl"></div>
@@ -159,7 +159,7 @@ import { site } from '../data/site';
         <div class="why-box-outer">
           <div class="why-box-inner">
             <img src="/logo.jpg" alt="" width="120" height="120" style="border-radius: 50%; object-fit: contain;" />
-            <p class="why-box-brand">DESPOT<br/>nekretnine</p>
+            <p class="why-box-brand">ДЕСПОТ<br/>некретнине</p>
             <span class="why-box-line"></span>
             <p class="why-box-tagline">Više od običnog posredovanja</p>
           </div>

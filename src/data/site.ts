@@ -6,8 +6,8 @@ export const site = {
   url: 'https://despotnekretnine.rs',
   contact: {
     phone: '061 18 30 866',
-    email: 'info@despotnekretnine.rs',
-    address: 'Ulica primer 1, Beograd',
+    email: 'nekretninedespot@gmail.com',
+    address: 'Vizeljska 3a, Beograd',
   },
   social: {
     facebook: '',
