@@ -26,7 +26,10 @@ Brend je luksuznog karaktera: crna pozadina, zlatni akcenti, minimalistički sti
 
 ## Pravila koja MORA da se poštuju
 
-- **Bez ćirilice** na sajtu. Jedini izuzetak je logo slika (`logo.jpg`) koja je originalni fajl klijenta. Svuda drugde piše se `Despot nekretnine` latinicom.
+- **Bez ćirilice** na sajtu, uz dva izuzetka:
+  1. Logo slika (`logo.jpg`) — originalni fajl klijenta.
+  2. Logo tekst pored slike (Header, Footer, i gde god se prikazuje logo) — piše se `ДЕСПОТ некретнине` ćirilicom, jer je to zvanični naziv firme. Ovo je eksplicitni zahtev klijenta.
+- Svuda drugde (sadržaj, navigacija, CTA) piše se `Despot nekretnine` latinicom.
 - **Bez kontakt forme** — klijent ne želi formu. Kontakt je isključivo: telefon, email, Instagram.
 - **Boje se ne menjaju** bez dogovora sa klijentom. Zlatna `#c9a84c` je direktno uzeta sa loga.
 - **Font je Montserrat** — jedini font. Nema mešanja serif/sans-serif.
