@@ -1,0 +1,62 @@
+---
+import { getAlternateUrl, type Lang } from '../../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const pathname = Astro.url.pathname;
+
+const srUrl = lang === 'sr' ? pathname : getAlternateUrl(pathname, lang);
+const enUrl = lang === 'en' ? pathname : getAlternateUrl(pathname, lang);
+---
+
+<div class="lang-switcher" role="navigation" aria-label="Odabir jezika / Language">
+  <a
+    href={srUrl}
+    class:list={['lang-btn', { 'lang-btn--active': lang === 'sr' }]}
+    hreflang="sr"
+    aria-label="Srpski"
+  >SR</a>
+  <span class="lang-sep" aria-hidden="true">|</span>
+  <a
+    href={enUrl}
+    class:list={['lang-btn', { 'lang-btn--active': lang === 'en' }]}
+    hreflang="en"
+    aria-label="English"
+  >EN</a>
+</div>
+
+<style>
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .lang-btn {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    padding: 0.25rem 0.1rem;
+    transition: color 0.2s;
+  }
+
+  .lang-btn:hover {
+    color: var(--color-primary);
+  }
+
+  .lang-btn--active {
+    color: var(--color-primary);
+  }
+
+  .lang-sep {
+    font-size: 0.65rem;
+    color: var(--color-border);
+    user-select: none;
+  }
+</style>

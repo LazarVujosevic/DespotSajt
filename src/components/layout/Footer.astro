@@ -1,6 +1,14 @@
 ---
 import { site } from '../../data/site';
+import { navLinks, t, type Lang } from '../../i18n/utils';
 
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
+const nav = navLinks(lang);
 const year = new Date().getFullYear();
 ---
 
@@ -10,8 +18,8 @@ const year = new Date().getFullYear();
 
       <!-- Brand -->
       <div class="footer-brand">
-        <a href="/" class="footer-logo" aria-label={site.name}>
-          <img src="/logo.jpg" alt="Despot Nekretnine logo" width="38" height="38" class="footer-logo-img" />
+        <a href={lang === 'en' ? '/en' : '/'} class="footer-logo" aria-label="ДЕСПОТ некретнине">
+          <img src="/logo.jpg" alt="ДЕСПОТ некретнине logo" width="38" height="38" class="footer-logo-img" />
           <span class="footer-logo-text">
             <span class="footer-logo-brand">ДЕСПОТ</span>
             <span class="footer-logo-sub">некретнине</span>
@@ -41,9 +49,9 @@ const year = new Date().getFullYear();
 
       <!-- Navigacija -->
       <div class="footer-col">
-        <h3 class="footer-heading">Navigacija</h3>
+        <h3 class="footer-heading">{tr.footer.navHeading}</h3>
         <ul>
-          {site.nav.map((item) => (
+          {nav.map((item) => (
             <li><a href={item.href}>{item.label}</a></li>
           ))}
         </ul>
@@ -51,18 +59,17 @@ const year = new Date().getFullYear();
 
       <!-- Usluge -->
       <div class="footer-col">
-        <h3 class="footer-heading">Usluge</h3>
+        <h3 class="footer-heading">{tr.footer.servicesHeading}</h3>
         <ul>
-          <li><a href="/usluge">Kupovina nekretnina</a></li>
-          <li><a href="/usluge">Prodaja nekretnina</a></li>
-          <li><a href="/usluge">Iznajmljivanje</a></li>
-          <li><a href="/usluge">Pravno savetovanje</a></li>
+          {tr.footer.serviceLinks.map((label) => (
+            <li><a href={lang === 'en' ? '/en/usluge' : '/usluge'}>{label}</a></li>
+          ))}
         </ul>
       </div>
 
       <!-- Kontakt -->
       <div class="footer-col">
-        <h3 class="footer-heading">Kontakt</h3>
+        <h3 class="footer-heading">{tr.footer.contactHeading}</h3>
         <ul class="footer-contact">
           <li>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -99,10 +106,10 @@ const year = new Date().getFullYear();
 
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <p>&copy; {year} {site.name}. Sva prava zadržana.</p>
+      <p>&copy; {year} {site.name}. {tr.footer.copyright}</p>
       <nav aria-label="Pravne veze">
-        <a href="/dokumentacija">Pravna dokumentacija</a>
-        <a href="/politika-privatnosti">Politika privatnosti</a>
+        <a href={lang === 'en' ? '/en/dokumentacija' : '/dokumentacija'}>{tr.footer.legal}</a>
+        <a href={lang === 'en' ? '/en/politika-privatnosti' : '/politika-privatnosti'}>{tr.footer.privacy}</a>
       </nav>
     </div>
   </div>

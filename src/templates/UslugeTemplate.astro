@@ -1,0 +1,315 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+import { t, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
+const s = tr.services;
+---
+
+<BaseLayout title={s.pageTitle} description={tr.meta.services.description} lang={lang}>
+
+  <!-- Page hero -->
+  <section class="page-hero section-sm">
+    <div class="container">
+      <p class="section-eyebrow">{s.pageEyebrow}</p>
+      <h1>{s.pageTitle}</h1>
+      <p class="page-hero-sub">{s.pageHeroSub}</p>
+    </div>
+  </section>
+
+  <!-- Usluge -->
+  {s.items.map((svc, i) => (
+    <section id={svc.slug} class:list={['service-section section', { 'service-section--alt': i % 2 !== 0 }]}>
+      <div class="container service-inner">
+
+        <div class="service-text">
+          <div class="service-meta">
+            <span class="service-num">{svc.num}</span>
+            <span class="service-line" aria-hidden="true"></span>
+          </div>
+          <h2 class="service-title">{svc.title}</h2>
+          <p class="service-lead">
+            {svc.lead[0]}
+            <br/><span class="lead-gold">{svc.lead[1]}</span>
+          </p>
+          {svc.body.map((p) => (
+            <p class="service-body">{p}</p>
+          ))}
+        </div>
+
+        <div class="service-list-col">
+          <p class="list-heading">{s.listHeading}</p>
+          <ul class="service-list">
+            {svc.items.map((item) => (
+              <li class="service-list-item">
+                <span class="list-arrow" aria-hidden="true">›</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`} class="service-cta">
+            <span class="service-cta-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </span>
+            {s.callBtn}
+          </a>
+        </div>
+
+      </div>
+
+      {i < s.items.length - 1 && (
+        <div class="container">
+          <div class="section-divider" aria-hidden="true"></div>
+        </div>
+      )}
+    </section>
+  ))}
+
+  <!-- Bottom CTA -->
+  <section class="bottom-cta section-sm">
+    <div class="container bottom-cta-inner">
+      <div>
+        <p class="section-eyebrow">{s.bottomEyebrow}</p>
+        <h2 class="bottom-cta-title">{s.bottomTitle}</h2>
+        <p class="bottom-cta-sub">{s.bottomSub}</p>
+      </div>
+      <div class="bottom-cta-contacts">
+        <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`} class="contact-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          {site.contact.phone}
+        </a>
+        <a href="https://www.instagram.com/_prodaja_nekretnina_/" target="_blank" rel="noopener noreferrer" class="contact-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+          </svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background-color: #000000;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    margin: 0.5rem 0 1rem;
+  }
+
+  .page-hero-sub {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    max-width: 40rem;
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  .service-section { background-color: var(--color-background); }
+  .service-section--alt { background-color: var(--color-surface); }
+
+  .service-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .service-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .service-num {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    color: var(--color-primary);
+  }
+
+  .service-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-primary), transparent);
+    opacity: 0.4;
+    max-width: 4rem;
+  }
+
+  .service-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    margin: 0 0 1.25rem;
+    line-height: 1.1;
+  }
+
+  .service-lead {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--color-text);
+    margin: 0 0 1.5rem;
+  }
+
+  .lead-gold { color: var(--color-primary); }
+
+  .service-body {
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    margin: 0 0 1rem;
+  }
+
+  .service-body:last-of-type { margin-bottom: 0; }
+
+  .list-heading {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin: 0 0 1.25rem;
+  }
+
+  .service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5rem;
+    border: 1px solid var(--color-border);
+  }
+
+  .service-list-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.875rem;
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .service-list-item:last-child { border-bottom: none; }
+
+  .service-list-item:hover {
+    background-color: rgba(201, 168, 76, 0.04);
+    color: var(--color-text);
+  }
+
+  .list-arrow {
+    color: var(--color-primary);
+    font-size: 1.125rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .service-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-primary);
+    color: #000000;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.2s, box-shadow 0.2s;
+  }
+
+  .service-cta:hover {
+    background-color: var(--color-primary-hover);
+    box-shadow: var(--shadow-gold-hover);
+  }
+
+  .service-cta-icon { display: flex; align-items: center; }
+
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+    margin-top: 5rem;
+  }
+
+  .bottom-cta {
+    background-color: #000000;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .bottom-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .bottom-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-primary);
+    margin: 0.375rem 0 0.625rem;
+    line-height: 1;
+  }
+
+  .bottom-cta-sub {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .bottom-cta-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .contact-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--color-border-gold);
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+  }
+
+  .contact-pill:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background-color: rgba(201, 168, 76, 0.05);
+  }
+
+  @media (max-width: 900px) {
+    .service-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .bottom-cta-inner { flex-direction: column; align-items: flex-start; }
+    .bottom-cta-contacts { flex-direction: row; flex-wrap: wrap; }
+  }
+</style>

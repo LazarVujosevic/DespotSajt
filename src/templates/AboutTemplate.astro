@@ -1,0 +1,656 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+import { site } from '../data/site';
+import { t, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
+const a = tr.about;
+const prefix = lang === 'en' ? '/en' : '';
+
+const valueIcons = [
+  'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+  'M13 10V3L4 14h7v7l9-11h-7z',
+  'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0',
+  'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2',
+];
+---
+
+<BaseLayout title={tr.meta.about.title} description={tr.meta.about.description} lang={lang}>
+
+  <!-- ===== HERO ===== -->
+  <section class="page-hero section-sm">
+    <div class="container">
+      <p class="section-eyebrow">{a.heroEyebrow}</p>
+      <h1>
+        {a.heroTitle.split('\n').map((line, i) => (
+          <>{i > 0 && <br />}{line}</>
+        ))}
+      </h1>
+      <p class="page-hero-sub">{a.heroSub}</p>
+    </div>
+  </section>
+
+  <!-- ===== PRIČA ===== -->
+  <section class="section story-section">
+    <div class="container story-inner">
+
+      <div class="story-text">
+        <p class="section-eyebrow">{a.storyEyebrow}</p>
+        <h2 class="story-title">{a.storyTitle}<br/><span class="text-gold">{a.storyTitleGold}</span></h2>
+        {a.storyParas.map((p) => (
+          <p set:html={p} />
+        ))}
+      </div>
+
+      <div class="story-visual" aria-hidden="true">
+        <div class="story-logo-box">
+          <img src="/logo.jpg" alt="" width="140" height="140" />
+          <span class="story-logo-line"></span>
+          <p class="story-logo-name">Despot<br/>nekretnine</p>
+        </div>
+        <div class="story-quote-float">
+          <p>
+            {a.quoteFloat.split('\n').map((line, i) => (
+              <>{i > 0 && <br />}{line}</>
+            ))}
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== MOTO (FULL WIDTH) ===== -->
+  <section class="motto-section">
+    <div class="motto-line" aria-hidden="true"></div>
+    <div class="container motto-inner">
+      <span class="motto-mark" aria-hidden="true">"</span>
+      <blockquote class="motto-text">
+        {a.mottoLine1}<br/>
+        <span class="text-gold">{a.mottoLine2Gold}</span>
+      </blockquote>
+    </div>
+    <div class="motto-line" aria-hidden="true"></div>
+  </section>
+
+  <!-- ===== PRISTUP ===== -->
+  <section class="section approach-section">
+    <div class="container approach-inner">
+
+      <div class="approach-header">
+        <p class="section-eyebrow">{a.approachEyebrow}</p>
+        <h2>{a.approachTitle}</h2>
+        <p class="approach-lead">{a.approachLead}</p>
+      </div>
+
+      <div class="approach-grid">
+        {a.approachCards.map((card) => (
+          <div class="approach-card">
+            <span class="approach-num">{card.num}</span>
+            <h3 class="approach-title">{card.title}</h3>
+            <p class="approach-body">{card.body}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== TIM ===== -->
+  <section class="section team-section">
+    <div class="container team-inner">
+
+      <div class="team-visual" aria-hidden="true">
+        <div class="team-blocks">
+          <div class="team-block team-block--exp">
+            <span class="team-block-num">30+</span>
+            <span class="team-block-lbl">{a.teamBlockLabels[0]}</span>
+          </div>
+          <div class="team-block team-block--youth">
+            <span class="team-block-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                <path d="M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+            </span>
+            <span class="team-block-lbl">{a.teamBlockLabels[1]}</span>
+          </div>
+          <div class="team-block team-block--city">
+            <span class="team-block-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </span>
+            <span class="team-block-lbl">{a.teamBlockLabels[2]}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-text">
+        <p class="section-eyebrow">{a.teamEyebrow}</p>
+        <h2>{a.teamTitle}<br/><span class="text-gold">{a.teamTitleGold}</span></h2>
+        {a.teamParas.map((p) => (
+          <p>{p}</p>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== VREDNOSTI ===== -->
+  <section class="section values-section">
+    <div class="container">
+      <div class="values-header">
+        <p class="section-eyebrow">{a.valuesEyebrow}</p>
+        <h2>{a.valuesTitle}</h2>
+      </div>
+
+      <div class="values-grid">
+        {a.values.map((v, i) => (
+          <div class="value-card">
+            <span class="value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d={valueIcons[i]}/>
+              </svg>
+            </span>
+            <h3 class="value-title">{v.title}</h3>
+            <p class="value-body">{v.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="about-cta section-sm">
+    <div class="about-cta-line" aria-hidden="true"></div>
+    <div class="container about-cta-inner">
+      <div>
+        <h2 class="about-cta-title">{a.ctaTitle}</h2>
+        <p class="about-cta-sub">{a.ctaSub}</p>
+      </div>
+      <div class="about-cta-contacts">
+        <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`} class="cta-contact-pill cta-contact-pill--primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          {site.contact.phone}
+        </a>
+        <a href="https://www.instagram.com/_prodaja_nekretnina_/" target="_blank" rel="noopener noreferrer" class="cta-contact-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+          </svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+    <div class="about-cta-line" aria-hidden="true"></div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background-color: #000000;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin: 0.5rem 0 1rem;
+    line-height: 1.15;
+  }
+
+  .page-hero-sub {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    max-width: 44rem;
+    margin: 0;
+    line-height: 1.75;
+  }
+
+  .story-section { background-color: var(--color-background); }
+
+  .story-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .story-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin: 0.625rem 0 1.75rem;
+  }
+
+  .story-text p {
+    font-size: 0.9375rem;
+    line-height: 1.85;
+    color: var(--color-text-muted);
+    margin: 0 0 1rem;
+  }
+
+  .story-text p :global(strong) {
+    color: var(--color-text);
+    font-weight: 700;
+  }
+
+  .story-text p:last-child { margin-bottom: 0; }
+
+  .story-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .story-logo-box {
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 360px;
+    border: 1px solid var(--color-border-gold);
+    background: rgba(201,168,76,0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .story-logo-box img { border-radius: 50%; object-fit: contain; }
+
+  .story-logo-line {
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background-color: var(--color-primary);
+    opacity: 0.5;
+  }
+
+  .story-logo-name {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    text-align: center;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .story-quote-float {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -2rem;
+    padding: 1.25rem 1.5rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border-gold);
+    max-width: 220px;
+  }
+
+  .story-quote-float p {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin: 0;
+  }
+
+  .motto-section {
+    padding: 4rem 0;
+    background-color: var(--color-surface);
+  }
+
+  .motto-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);
+  }
+
+  .motto-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 3rem 1.5rem;
+  }
+
+  .motto-mark {
+    font-family: Georgia, serif;
+    font-size: 6rem;
+    color: var(--color-primary);
+    opacity: 0.3;
+    line-height: 0.7;
+    flex-shrink: 0;
+    user-select: none;
+  }
+
+  .motto-text {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .approach-section {
+    background-color: var(--color-background);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .approach-header {
+    max-width: 40rem;
+    margin-bottom: 3rem;
+  }
+
+  .approach-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    margin: 0.5rem 0 0.875rem;
+  }
+
+  .approach-lead {
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border: 1px solid var(--color-border);
+  }
+
+  .approach-card {
+    padding: 2rem;
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color 0.2s;
+  }
+
+  .approach-card:nth-child(2),
+  .approach-card:nth-child(4) { border-right: none; }
+
+  .approach-card:nth-child(3),
+  .approach-card:nth-child(4) { border-bottom: none; }
+
+  .approach-card:hover { background-color: rgba(201,168,76,0.03); }
+
+  .approach-num {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .approach-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 0.75rem;
+    line-height: 1.35;
+  }
+
+  .approach-body {
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .team-section { background-color: var(--color-surface); }
+
+  .team-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .team-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .team-blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background-color: var(--color-border);
+    border: 1px solid var(--color-border);
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .team-block {
+    background-color: var(--color-surface);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .team-block--exp {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;
+    background-color: rgba(201,168,76,0.05);
+    border-bottom: 1px solid var(--color-border-gold);
+  }
+
+  .team-block-num {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .team-block-icon { color: var(--color-primary); opacity: 0.7; }
+
+  .team-block-lbl {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .team-text h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin: 0.625rem 0 1.75rem;
+  }
+
+  .team-text p {
+    font-size: 0.9375rem;
+    line-height: 1.85;
+    color: var(--color-text-muted);
+    margin: 0 0 1rem;
+  }
+
+  .team-text p:last-child { margin-bottom: 0; }
+
+  .values-section {
+    background-color: var(--color-background);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .values-header { margin-bottom: 3rem; }
+
+  .values-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    margin: 0.5rem 0 0;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--color-border);
+  }
+
+  .value-card {
+    padding: 2rem 1.75rem;
+    border-right: 1px solid var(--color-border);
+    transition: background-color 0.2s;
+  }
+
+  .value-card:last-child { border-right: none; }
+  .value-card:hover { background-color: rgba(201,168,76,0.03); }
+
+  .value-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--color-border-gold);
+    color: var(--color-primary);
+    margin-bottom: 1.125rem;
+  }
+
+  .value-title {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 0.625rem;
+  }
+
+  .value-body {
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .about-cta {
+    background-color: var(--color-surface);
+    padding: 4rem 0;
+  }
+
+  .about-cta-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.35), transparent);
+  }
+
+  .about-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 3rem 1.5rem;
+  }
+
+  .about-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-primary);
+    margin: 0 0 0.5rem;
+    line-height: 1;
+  }
+
+  .about-cta-sub {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  .about-cta-contacts {
+    display: flex;
+    gap: 0.875rem;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+
+  .cta-contact-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--color-border-gold);
+    color: var(--color-text);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+  }
+
+  .cta-contact-pill:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background-color: rgba(201,168,76,0.05);
+  }
+
+  .cta-contact-pill--primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #000000;
+    font-weight: 700;
+  }
+
+  .cta-contact-pill--primary:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    color: #000000;
+  }
+
+  @media (max-width: 1024px) {
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+    .value-card:nth-child(2) { border-right: none; }
+    .value-card:nth-child(1),
+    .value-card:nth-child(2) { border-bottom: 1px solid var(--color-border); }
+  }
+
+  @media (max-width: 900px) {
+    .story-inner, .team-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .approach-grid { grid-template-columns: 1fr; }
+    .approach-card { border-right: none !important; }
+    .approach-card:last-child { border-bottom: none; }
+    .about-cta-inner { flex-direction: column; align-items: flex-start; }
+    .motto-mark { font-size: 4rem; }
+    .story-visual { padding: 2rem 3rem 3rem; }
+    .story-logo-box { max-width: 100%; aspect-ratio: auto; padding: 2.5rem 1.5rem; }
+    .story-quote-float { right: 0; bottom: -1.5rem; }
+  }
+
+  @media (max-width: 600px) {
+    .values-grid { grid-template-columns: 1fr; }
+    .value-card { border-right: none; border-bottom: 1px solid var(--color-border); }
+    .value-card:last-child { border-bottom: none; }
+    .about-cta-contacts { flex-direction: column; width: 100%; }
+    .cta-contact-pill { justify-content: center; }
+    .team-blocks { max-width: 100%; }
+  }
+</style>

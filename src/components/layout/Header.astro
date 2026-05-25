@@ -1,10 +1,20 @@
 ---
-import { site } from '../../data/site';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { navLinks, t, type Lang } from '../../i18n/utils';
 
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
+const nav = navLinks(lang);
 const currentPath = Astro.url.pathname;
 
 function isActive(href: string): boolean {
-  if (href === '/') return currentPath === '/';
+  if (href === '/' || href === '/en') {
+    return currentPath === href || currentPath === `${href}/`;
+  }
   return currentPath.startsWith(href);
 }
 ---
@@ -13,15 +23,14 @@ function isActive(href: string): boolean {
   <div class="container header-inner">
 
     <!-- Logo -->
-    <a href="/" class="logo" aria-label={`${site.name} – početna`}>
+    <a href={lang === 'en' ? '/en' : '/'} class="logo" aria-label="ДЕСПОТ некретнине — početna">
       <img
         src="/logo.jpg"
-        alt="Despot Nekretnine logo"
+        alt="ДЕСПОТ некретнине logo"
         class="logo-mark"
         width="44"
         height="44"
       />
-
       <span class="logo-text">
         <span class="logo-brand">ДЕСПОТ</span>
         <span class="logo-sub">некретнине</span>
@@ -31,7 +40,7 @@ function isActive(href: string): boolean {
     <!-- Desktop navigacija -->
     <nav class="nav-desktop" aria-label="Glavna navigacija">
       <ul>
-        {site.nav.map((item) => (
+        {nav.map((item) => (
           <li>
             <a
               href={item.href}
@@ -45,10 +54,13 @@ function isActive(href: string): boolean {
       </ul>
     </nav>
 
-    <!-- CTA -->
-    <a href="/kontakt" class="btn-header-cta">
-      Kontaktirajte nas
-    </a>
+    <!-- Language switcher + CTA -->
+    <div class="header-right">
+      <LanguageSwitcher lang={lang} />
+      <a href={lang === 'en' ? '/en/kontakt' : '/kontakt'} class="btn-header-cta">
+        {tr.header.cta}
+      </a>
+    </div>
 
     <!-- Hamburger -->
     <button
@@ -67,7 +79,7 @@ function isActive(href: string): boolean {
   <!-- Mobilni meni -->
   <nav id="mobile-menu" class="nav-mobile" aria-label="Mobilna navigacija" aria-hidden="true">
     <ul>
-      {site.nav.map((item) => (
+      {nav.map((item) => (
         <li>
           <a
             href={item.href}
@@ -77,8 +89,11 @@ function isActive(href: string): boolean {
           </a>
         </li>
       ))}
+      <li class="mobile-lang-row">
+        <LanguageSwitcher lang={lang} />
+      </li>
       <li>
-        <a href="/kontakt" class="nav-mobile-cta">Kontaktirajte nas</a>
+        <a href={lang === 'en' ? '/en/kontakt' : '/kontakt'} class="nav-mobile-cta">{tr.header.cta}</a>
       </li>
     </ul>
   </nav>
@@ -208,9 +223,16 @@ function isActive(href: string): boolean {
     color: var(--color-primary);
   }
 
+  /* === HEADER RIGHT (lang + CTA) === */
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-shrink: 0;
+  }
+
   /* === CTA === */
   .btn-header-cta {
-    flex-shrink: 0;
     padding: 0.5rem 1.25rem;
     border: 1px solid var(--color-primary);
     color: var(--color-primary);
@@ -272,7 +294,7 @@ function isActive(href: string): boolean {
   }
 
   .nav-mobile.is-open {
-    max-height: 30rem;
+    max-height: 32rem;
   }
 
   .nav-mobile ul {
@@ -297,6 +319,12 @@ function isActive(href: string): boolean {
     color: var(--color-primary);
   }
 
+  .mobile-lang-row {
+    padding: 0.5rem 1.5rem;
+    border-top: 1px solid var(--color-border);
+    margin-top: 0.25rem;
+  }
+
   .nav-mobile-cta {
     display: block;
     margin: 0.75rem 1.5rem;
@@ -314,7 +342,7 @@ function isActive(href: string): boolean {
 
   /* === RESPONSIVE === */
   @media (max-width: 900px) {
-    .nav-desktop, .btn-header-cta { display: none; }
+    .nav-desktop, .header-right { display: none; }
     .menu-toggle { display: flex; }
     .nav-mobile  { display: block; }
   }

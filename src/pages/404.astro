@@ -1,15 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
+import { t, type Lang } from '../i18n/utils';
+
+const lang: Lang = Astro.url.pathname.startsWith('/en') ? 'en' : 'sr';
+const tr = t(lang);
+const nf = tr.notFound;
+const homeHref = lang === 'en' ? '/en' : '/';
 ---
 
-<BaseLayout title="Stranica nije pronađena" noIndex={true}>
+<BaseLayout title={nf.title} noIndex={true} lang={lang}>
   <section class="error-page section">
     <div class="container error-inner">
       <p class="error-code" aria-hidden="true">404</p>
-      <h1>Stranica nije pronađena</h1>
-      <p>Stranica koju tražite ne postoji ili je premeštena.</p>
-      <Button href="/" variant="outline">Povratak na početnu</Button>
+      <h1>{nf.title}</h1>
+      <p>{nf.message}</p>
+      <Button href={homeHref} variant="outline">{nf.btn}</Button>
     </div>
   </section>
 </BaseLayout>
