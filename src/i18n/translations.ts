@@ -13,6 +13,7 @@ export const translations = {
       cta: 'Kontaktirajte nas',
     },
     footer: {
+      tagline: 'Mi se bavimo vašim stanom, a vi se bavite vašim danom.',
       navHeading: 'Navigacija',
       servicesHeading: 'Usluge',
       contactHeading: 'Kontakt',
@@ -246,6 +247,7 @@ export const translations = {
       cta: 'Contact us',
     },
     footer: {
+      tagline: 'We handle your property, so you can handle your day.',
       navHeading: 'Navigation',
       servicesHeading: 'Services',
       contactHeading: 'Contact',
