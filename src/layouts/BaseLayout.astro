@@ -21,8 +21,54 @@ const {
   lang = 'sr',
 } = Astro.props;
 
-const pageTitle = title ? `${title} | ${site.name}` : site.name;
+const siteTitle = lang === 'en' ? 'Despot nekretnine | Real Estate Agency Belgrade' : 'Despot nekretnine | Agencija za nekretnine Beograd';
+const pageTitle = title ? `${title} | ${site.name}` : siteTitle;
 const canonicalURL = new URL(Astro.url.pathname, site.url);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'RealEstateAgent',
+  name: 'Despot nekretnine',
+  url: site.url,
+  logo: `${site.url}/logo.jpg`,
+  image: `${site.url}/og-image.jpg`,
+  description: site.description,
+  telephone: site.contact.phone,
+  email: site.contact.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.contact.address,
+    addressLocality: 'Beograd',
+    addressCountry: 'RS',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 44.8125,
+    longitude: 20.4612,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '17:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '09:00',
+      closes: '13:00',
+    },
+  ],
+  sameAs: [
+    'https://www.instagram.com/_prodaja_nekretnina_/',
+  ],
+  areaServed: {
+    '@type': 'City',
+    name: 'Beograd',
+  },
+  knowsAbout: ['prodaja nekretnina', 'iznajmljivanje nekretnina', 'upravljanje nekretninama', 'posredovanje u prometu nekretnina'],
+};
 ---
 
 <!doctype html>
@@ -33,8 +79,7 @@ const canonicalURL = new URL(Astro.url.pathname, site.url);
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- SEO -->
@@ -58,6 +103,9 @@ const canonicalURL = new URL(Astro.url.pathname, site.url);
     <meta name="twitter:image" content={new URL(image, site.url)} />
 
     <meta name="generator" content={Astro.generator} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
