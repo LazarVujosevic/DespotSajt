@@ -17,7 +17,7 @@ Brend je luksuznog karaktera: crna pozadina, zlatni akcenti, minimalistički sti
 - Stranica O nama: kompletna (priča, moto, pristup, tim, vrednosti, CTA)
 - Kontakt stranica: samo kontakt info, bez forme
 - Dokumentacija: 2 PDF-a postavljena, 2 placeholder-a čekaju fajlove
-- Politika privatnosti: generička, usklađena sa ZZPL/GDPR — preporučiti pregled pravnika pre lansiranja
+- Politika privatnosti: generička, usklađena sa ZZPL/GDPR. Sajt je lansiran (live).
 - Custom 404
 - `.htaccess` za cPanel (HTTPS redirect, cache headers, sigurnosni headeri)
 - Responzivnost: plutajuće kartice vidljive na svim uređajima (padding kompenzacija za overflow)
@@ -33,7 +33,7 @@ Brend je luksuznog karaktera: crna pozadina, zlatni akcenti, minimalistički sti
 - Svuda drugde (sadržaj, navigacija, CTA) piše se `Despot nekretnine` latinicom.
 - **Bez kontakt forme** — klijent ne želi formu. Kontakt je isključivo: telefon, email, Instagram.
 - **Boje se ne menjaju** bez dogovora sa klijentom. Zlatna `#c9a84c` je direktno uzeta sa loga.
-- **Font je Montserrat** — jedini font. Nema mešanja serif/sans-serif.
+- **Font je Montserrat** — jedini font. Nema mešanja serif/sans-serif. Self-hosted preko `@fontsource/montserrat` (uvozi se u `global.css`) — namerno se NE koristi Google Fonts CDN, da bi se izbegao prenos IP adrese posetilaca ka Google serverima (GDPR/ZZPL pitanje prenosa podataka u treću zemlju).
 
 ## Centralni config fajl
 

@@ -565,6 +565,7 @@ const prefix = lang === 'en' ? '/en' : '';
     align-items: center;
     justify-content: center;
     gap: 0.875rem;
+    padding: 0 1.5rem;
     background: rgba(201,168,76,0.02);
   }
 
@@ -576,6 +577,7 @@ const prefix = lang === 'en' ? '/en' : '';
     color: var(--color-primary);
     line-height: 1.5;
     margin: 0;
+    max-width: 100%;
   }
 
   .why-box-line {
@@ -593,6 +595,7 @@ const prefix = lang === 'en' ? '/en' : '';
     color: var(--color-text-muted);
     margin: 0;
     text-align: center;
+    max-width: 100%;
   }
 
   .stat-float {
@@ -753,7 +756,9 @@ const prefix = lang === 'en' ? '/en' : '';
     .why-inner { grid-template-columns: 1fr; gap: 2rem; }
     .hero-story { flex-direction: column; align-items: flex-start; gap: 1rem; }
     .hero-story-divider { width: 3rem; height: 1px; }
-    .why-visual-col { padding: 2rem 3rem; }
+    .why-visual-col { padding: 3rem 3.5rem 5rem; }
+    .stat-float--tl { top: -1.5rem; left: -4rem; }
+    .stat-float--br { bottom: -3.5rem; right: -2.75rem; }
   }
 
   @media (max-width: 768px) {
