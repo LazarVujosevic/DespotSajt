@@ -7,7 +7,7 @@ export const site = {
   contact: {
     phone: '061 18 30 866',
     email: 'nekretninedespot@gmail.com',
-    address: 'Vizeljska 3a, Beograd',
+    address: 'Kneza Mihaila 21a, TC Milenium, lokal 85, Beograd',
   },
   social: {
     facebook: '',

@@ -37,14 +37,14 @@ const jsonLd = {
   email: site.contact.email,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: site.contact.address,
+    streetAddress: site.contact.address.split(', Beograd')[0],
     addressLocality: 'Beograd',
     addressCountry: 'RS',
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: 44.8125,
-    longitude: 20.4612,
+    latitude: 44.8164,
+    longitude: 20.4579,
   },
   openingHoursSpecification: [
     {
